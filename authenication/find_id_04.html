@@ -16,71 +16,60 @@
     <link rel="stylesheet" href="../assets/index.css" />
   </head>
   <body>
-    <div class="container p-4">
-      <div class="modal find-id show">
-        <div class="header">
-          <h3 class="text--green">아이디 찾기</h3>
-          <div class="action">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <mask
-                id="mask0_63_2479"
-                maskUnits="userSpaceOnUse"
-                x="0"
-                y="0"
+    <div id="root">
+      <div class="container px-4">
+        <div class="modal find-id show">
+          <div class="header">
+            <h3 class="text--green">아이디 찾기</h3>
+            <div class="action">
+              <svg
                 width="24"
                 height="24"
-                style="mask-type: luminance"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M24 0H0V24H24V0Z" fill="white"></path>
-              </mask>
-              <g mask="url(#mask0_63_2479)">
-                <path
-                  d="M17 3L7 12L17 21"
-                  stroke="#349B7E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </g>
-            </svg>
-          </div>
-        </div>
-        <div class="container p-4">
-          <div class="main-HF">
-            <p class="content-title mb-6">
-              휴대폰번호와 일치하는 아이디입니다.
-            </p>
-            <div class="info">
-              <p>abc*****@naver.com</p>
-              <p>가입일: 2023-05-08</p>
+                <mask
+                  id="mask0_63_2479"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                  style="mask-type: luminance"
+                >
+                  <path d="M24 0H0V24H24V0Z" fill="white"></path>
+                </mask>
+                <g mask="url(#mask0_63_2479)">
+                  <path
+                    d="M17 3L7 12L17 21"
+                    stroke="#349B7E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </g>
+              </svg>
             </div>
           </div>
-        </div>
-        <a href="./login_01.html">
-          <div class="footer">
-            <button class="button-item disable mr-4">비밀번호 찾기</button>
-
-            <button class="button-item">로그인 하기</button>
-          </div>
-        </a>
-        <div class="dialog-custom">
-          <dialog>
-            <div class="dialog-content">
-              <p>가입한 적 없는 휴대폰번호에요.</p>
-              <p>회원가입 페이지로 이동할까요?</p>
-              <div class="sign-in_options mt-6">
-                <button class="disable px-8">취소</button>
-                <div class="line-vertical secondary m-0"></div>
-                <button class="px-8">이동</button>
+          <div class="container">
+            <div class="main-HF p-4">
+              <p class="content-title mb-6">
+                휴대폰번호와 일치하는 아이디입니다.
+              </p>
+              <div class="info">
+                <p>abc*****@naver.com</p>
+                <p>가입일: 2023-05-08</p>
               </div>
             </div>
-          </dialog>
+          </div>
+          <a href="./login_01.html">
+            <div class="footer">
+              <button class="button-item disable mr-4">비밀번호 찾기</button>
+
+              <button class="button-item">로그인 하기</button>
+            </div>
+          </a>
         </div>
       </div>
     </div>

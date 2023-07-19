@@ -1,0 +1,2635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.5</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="../assets/index.css" />
+    <script src="https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=ITNGzaPq7Q3Ehn1JZ0ecv2zmYJd6y5Z75tDBSOCV"></script>
+    <script type="text/javascript">
+      function initTmap() {
+        var map = new Tmapv3.Map("map_div", {
+          center: new Tmapv3.LatLng(37.566481622437934, 126.98502302169841), // 지도 초기 좌표
+          width: "100%",
+          height: "100%",
+          zoom: 18,
+        });
+      }
+    </script>
+  </head>
+  <body onload="initTmap()">
+    <a href="./main05.html">
+      <div id="root">
+        <div id="map_div"></div>
+        <div class="container" style="background: transparent">
+          <div class="p-4 main" id="background-main" style="height: 100%">
+            <div class="search_field">
+              <div class="form mb-4" style="background-color: white">
+                <input
+                  placeholder="환경운전을 시작해 보세요!"
+                  type="text"
+                  class="input-custom"
+                  value=""
+                />
+                <div class="mr-4 flexHorizontal">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="search">
+                      <mask
+                        id="mask0_30_675"
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="22"
+                        height="22"
+                        style="mask-type: luminance"
+                      >
+                        <g id="clippath">
+                          <path
+                            id="Vector"
+                            d="M22 0H0V22H22V0Z"
+                            fill="white"
+                          ></path>
+                        </g>
+                      </mask>
+                      <g mask="url(#mask0_30_675)">
+                        <g id="Group">
+                          <g id="Group_2">
+                            <path
+                              id="Vector_2"
+                              d="M8.68997 15.3175C12.2844 15.3175 15.1983 12.4036 15.1983 8.80918C15.1983 5.21472 12.2844 2.30084 8.68997 2.30084C5.09552 2.30084 2.18164 5.21472 2.18164 8.80918C2.18164 12.4036 5.09552 15.3175 8.68997 15.3175Z"
+                              stroke="#009B83"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              id="Vector_3"
+                              d="M13.3008 13.3925L19.8183 19.6992"
+                              stroke="#009B83"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="search_suggestion notshowMore">
+                <h4 class="mx-2">최근 목적지</h4>
+                <div class="mb-14 list_location">
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                  <div
+                    class="space_between py-2"
+                    style="border-bottom: 1px solid rgb(234, 234, 234)"
+                  >
+                    <div style="display: flex; gap: 4px; align-items: center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="mr-2"
+                      >
+                        <mask
+                          id="mask0_44_2655"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="16"
+                          height="16"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M16 0H0V16H16V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_44_2655)">
+                          <path
+                            d="M11.26 8.23335C11.78 7.44668 12.2134 6.57335 12.2134 5.56001C12.2134 3.23335 10.3 1.34668 7.97336 1.34668C5.6467 1.34668 3.78003 3.23335 3.78003 5.56001C3.78003 6.56668 4.21336 7.43335 4.7267 8.22001C5.69336 9.70001 7.97336 14.68 7.97336 14.68C7.97336 14.68 10.28 9.71335 11.26 8.23335Z"
+                            stroke="#349B7E"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                          <path
+                            d="M7.99992 4.04669C8.91992 4.04669 9.66659 4.79336 9.66659 5.71336C9.66659 6.63336 8.91992 7.38003 7.99992 7.38003C7.07992 7.38003 6.33325 6.63336 6.33325 5.71336C6.33325 4.79336 7.07992 4.04669 7.99992 4.04669ZM7.99992 3.04669C6.52659 3.04669 5.33325 4.24002 5.33325 5.71336C5.33325 7.18669 6.52659 8.38003 7.99992 8.38003C9.47325 8.38003 10.6666 7.18669 10.6666 5.71336C10.6666 4.24002 9.47325 3.04669 7.99992 3.04669Z"
+                            fill="#349B7E"
+                          ></path>
+                        </g>
+                      </svg>
+                      <p class="p2">스타벅스 서울교대점</p>
+                    </div>
+                    <div class="p10" style="color: rgb(191, 190, 190)">
+                      06-02
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <div class="center">
+                    <button class="button-item" style="width: fit-content">
+                      <div style="display: flex">
+                        <p class="s">더보기</p>
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          stroke="white"
+                          class="ml-2"
+                          style=""
+                        >
+                          <mask
+                            id="mask0_36_2834"
+                            maskUnits="userSpaceOnUse"
+                            x="0"
+                            y="0"
+                            width="12"
+                            height="12"
+                            style="mask-type: luminance"
+                          >
+                            <path d="M12 0H0V12H12V0Z" fill="white"></path>
+                          </mask>
+                          <g mask="url(#mask0_36_2834)">
+                            <path
+                              d="M1.5 3.5L6 8.5L10.5 3.5"
+                              stroke="current"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div
+                style="
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                  top: 0px;
+                  width: 100%;
+                "
+              >
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="36" height="36" rx="18" fill="#66C3B5"></rect>
+                  <mask
+                    id="mask0_36_2479"
+                    maskUnits="userSpaceOnUse"
+                    x="7"
+                    y="7"
+                    width="22"
+                    height="22"
+                    style="mask-type: luminance"
+                  >
+                    <path
+                      d="M7.7 28.3V7.69995H28.3V28.3H7.7Z"
+                      fill="white"
+                      stroke="white"
+                    ></path>
+                  </mask>
+                  <g mask="url(#mask0_36_2479)">
+                    <path
+                      d="M11.304 20.6999C12.7952 20.6999 14.004 19.4911 14.004 17.9999C14.004 16.5088 12.7952 15.2999 11.304 15.2999C9.81288 15.2999 8.60405 16.5088 8.60405 17.9999C8.60405 19.4911 9.81288 20.6999 11.304 20.6999Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                    ></path>
+                    <path
+                      d="M24.696 13.9139C26.1872 13.9139 27.396 12.7051 27.396 11.2139C27.396 9.72275 26.1872 8.51392 24.696 8.51392C23.2049 8.51392 21.996 9.72275 21.996 11.2139C21.996 12.7051 23.2049 13.9139 24.696 13.9139Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                    ></path>
+                    <path
+                      d="M24.696 27.4859C26.1872 27.4859 27.396 26.2771 27.396 24.7859C27.396 23.2948 26.1872 22.0859 24.696 22.0859C23.2049 22.0859 21.996 23.2948 21.996 24.7859C21.996 26.2771 23.2049 27.4859 24.696 27.4859Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                    ></path>
+                    <path
+                      d="M22.212 12.2489L13.608 16.6049"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                    ></path>
+                    <path
+                      d="M13.608 19.3949L21.996 23.6429"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                    ></path>
+                  </g></svg
+                ><button class="button-item">목적지 설정하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="module" src="/src/main.tsx?t=1689749198586"></script>
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- <script src="https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=ITNGzaPq7Q3Ehn1JZ0ecv2zmYJd6y5Z75tDBSOCV"></script> -->
+      <!-- <script type="text/javascript" src="./map.js"></script> -->
+
+      <div
+        style="
+          position: fixed;
+          inset: 0px;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 3;
+          background: none;
+          visibility: visible;
+        "
+      >
+        <div
+          class="react-modal-sheet-container"
+          style="
+            z-index: 2;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px -2px 16px;
+            display: flex;
+            flex-direction: column;
+            pointer-events: auto;
+            height: min(760px, calc(100% - env(safe-area-inset-top) - 34px));
+            transform: translateY(338px) translateZ(0px);
+          "
+        >
+          <div
+            draggable="false"
+            style="width: 100%; user-select: none; touch-action: pan-x"
+          >
+            <div
+              class="react-modal-sheet-header"
+              style="
+                height: 40px;
+                width: 100%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <span
+                class="react-modal-sheet-drag-indicator"
+                style="
+                  width: 18px;
+                  height: 4px;
+                  border-radius: 99px;
+                  background-color: rgb(221, 221, 221);
+                  transform: translateX(2px) rotate(0deg);
+                "
+              ></span
+              ><span
+                class="react-modal-sheet-drag-indicator"
+                style="
+                  width: 18px;
+                  height: 4px;
+                  border-radius: 99px;
+                  background-color: rgb(221, 221, 221);
+                  transform: translateX(-2px) rotate(0deg);
+                "
+              ></span>
+            </div>
+          </div>
+          <div
+            class="react-modal-sheet-content m-4"
+            draggable="false"
+            style="
+              flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+              min-height: 0px;
+              position: relative;
+              user-select: none;
+              touch-action: pan-x;
+              transform: none;
+            "
+          >
+            <div style="overflow-y: auto; position: relative">
+              <div class="location">
+                <div class="pr-4" style="position: relative">
+                  <img
+                    src="https://www.historylink.org/Content/Media/Photos/Large/first-Starbucks-sign-with-original-logo-Harbor-Heights-Hotel-building-Seattle-1970s.jpg"
+                  />
+                </div>
+                <div class="rightside">
+                  <div style="display: flex; gap: 8px; align-items: center">
+                    <h4>스타벅스 서울교대점</h4>
+                    <div class="chip default"><p>12.21 km</p></div>
+                  </div>
+                  <p class="p2" style="color: rgb(148, 146, 146)">카페</p>
+                  <div style="display: flex; gap: 8px">
+                    <p class="p2">서울 서초구 서초중앙로 6</p>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.6125 2.47498L8.64375 0.524976C8.5125 0.393726 8.325 0.318726 8.1375 0.318726H4.725C4.18125 0.318726 3.73125 0.768726 3.73125 1.31248V8.15622C3.73125 8.69998 4.18125 9.14997 4.725 9.14997H9.825C10.3687 9.14997 10.8187 8.69998 10.8187 8.15622V2.98123C10.8187 2.79373 10.7437 2.60623 10.6125 2.47498ZM8.68125 1.76248L9.39375 2.47498H8.68125V1.76248ZM9.825 8.30622H4.725C4.65 8.30622 4.575 8.23123 4.575 8.15622V1.31248C4.575 1.23748 4.65 1.16248 4.725 1.16248H7.8375V2.88748C7.8375 3.11248 8.025 3.31873 8.26875 3.31873H9.975V8.17497C9.975 8.24997 9.9 8.30622 9.825 8.30622Z"
+                        fill="#009B83"
+                      ></path>
+                      <path
+                        d="M7.8375 9.75C7.6125 9.75 7.40625 9.9375 7.40625 10.1812V10.6875C7.40625 10.7625 7.33125 10.8375 7.25625 10.8375H2.175C2.1 10.8375 2.025 10.7625 2.025 10.6875V3.825C2.025 3.75 2.1 3.675 2.175 3.675H2.8125C3.0375 3.675 3.24375 3.4875 3.24375 3.24375C3.24375 3 3.05625 2.8125 2.8125 2.8125H2.175C1.63125 2.8125 1.18125 3.2625 1.18125 3.80625V10.6875C1.18125 11.2312 1.63125 11.6812 2.175 11.6812H7.275C7.81875 11.6812 8.26875 11.2312 8.26875 10.6875V10.1812C8.26875 9.9375 8.08125 9.75 7.8375 9.75Z"
+                        fill="#009B83"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div style="display: flex; gap: 8px">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.89869 10.5319L9.90872 10.5159L10.9086 8.48636L7.98787 6.29582L6.64404 7.30363C6.13724 7.27348 5.65909 7.05856 5.3001 6.69957C4.94112 6.34057 4.7262 5.86242 4.69605 5.35563L5.70386 4.01181L3.51337 1.09113L1.50082 2.08267L1.48383 2.09102L1.46779 2.10107C1.38254 2.15398 1.31224 2.22784 1.26359 2.3156C1.21495 2.40337 1.18958 2.50213 1.1899 2.60247L1.1899 3.12616C1.1899 4.13519 1.38864 5.13434 1.77478 6.06657C2.16092 6.9988 2.7269 7.84584 3.4404 8.55933C4.15389 9.27282 5.00093 9.8388 5.93316 10.2249C6.86539 10.6111 7.86454 10.8098 8.87358 10.8098L9.39729 10.8098C9.49763 10.8101 9.59638 10.7848 9.68415 10.7361C9.77191 10.6875 9.84577 10.6172 9.89869 10.5319ZM8.87358 10.0598C5.05033 10.0598 1.9399 6.94938 1.9399 3.12616L1.9399 2.70241L3.28668 2.03898L4.76641 4.01195L3.94261 5.1104L3.94261 5.23539C3.94344 5.98354 4.24102 6.70081 4.77004 7.22983C5.29906 7.75886 6.01633 8.05643 6.76448 8.05727L6.88947 8.05727L7.9879 7.23346L9.96075 8.71302L9.29721 10.0598L8.87358 10.0598Z"
+                        fill="#696666"
+                      ></path>
+                    </svg>
+                    <p class="p2" style="color: rgb(0, 15, 255)">
+                      02-0000-0000
+                    </p>
+                  </div>
+                  <div style="display: flex; gap: 8px">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.1375 6.52498H6.43125V4.78123C6.43125 4.55623 6.24375 4.34998 6 4.34998C5.775 4.34998 5.56875 4.53748 5.56875 4.78123V6.52498H5.5125C5.2875 6.52498 5.08125 6.71248 5.08125 6.95623C5.08125 7.19998 5.26875 7.38748 5.5125 7.38748H5.56875V7.44373C5.56875 7.66873 5.75625 7.87498 6 7.87498C6.225 7.87498 6.43125 7.68748 6.43125 7.44373V7.38748H8.1375C8.3625 7.38748 8.56875 7.19998 8.56875 6.95623C8.56875 6.71248 8.3625 6.52498 8.1375 6.52498Z"
+                        fill="#696666"
+                      ></path>
+                      <path
+                        d="M11.1562 3.58123C11.1562 2.54998 10.3312 1.72498 9.3 1.72498C8.8125 1.72498 8.3625 1.91248 8.025 2.23123C7.51875 2.00623 6.99375 1.85623 6.4125 1.81873V1.18123H6.9375C7.1625 1.18123 7.36875 0.993726 7.36875 0.749976C7.36875 0.506226 7.18125 0.318726 6.9375 0.318726L5.04375 0.318726C4.81875 0.318726 4.6125 0.506226 4.6125 0.749976C4.6125 0.993726 4.8 1.18123 5.04375 1.18123L5.56875 1.18123V1.83748C5.00625 1.89373 4.4625 2.02498 3.95625 2.24998C3.61875 1.93123 3.16875 1.74373 2.68125 1.74373C1.65 1.74373 0.824997 2.56873 0.824997 3.59998C0.824997 4.10623 1.03125 4.59373 1.40625 4.93122C1.18125 5.49372 1.05 6.11247 1.05 6.74997C1.05 9.46872 3.2625 11.6812 5.98125 11.6812C8.7 11.6812 10.9125 9.46872 10.9125 6.74997C10.9125 6.11247 10.7812 5.49372 10.5562 4.93122C10.95 4.57498 11.1562 4.08748 11.1562 3.58123ZM9.3 2.56873C9.8625 2.56873 10.3125 3.01873 10.3125 3.58123C10.3125 3.76873 10.2562 3.95623 10.1625 4.10623C9.80625 3.54373 9.35625 3.07498 8.8125 2.69998C8.9625 2.60623 9.13125 2.56873 9.3 2.56873ZM1.6875 3.58123C1.6875 3.01873 2.1375 2.56873 2.7 2.56873C2.86875 2.56873 3.0375 2.60623 3.1875 2.69998C2.64375 3.07498 2.19375 3.56248 1.8375 4.10623C1.74375 3.93748 1.6875 3.76873 1.6875 3.58123ZM6 10.8375C3.75 10.8375 1.9125 8.99998 1.9125 6.74997C1.9125 4.49998 3.75 2.66248 6 2.66248C8.25 2.66248 10.0875 4.49998 10.0875 6.74997C10.0875 8.99998 8.25 10.8375 6 10.8375Z"
+                        fill="#696666"
+                      ></path>
+                    </svg>
+                    <p class="p2" style="color: rgb(198, 69, 60)">
+                      휴무
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke="#949292"
+                      >
+                        <mask
+                          id="mask0_36_2834"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="12"
+                          height="12"
+                          style="mask-type: luminance"
+                        >
+                          <path d="M12 0H0V12H12V0Z" fill="white"></path>
+                        </mask>
+                        <g mask="url(#mask0_36_2834)">
+                          <path
+                            d="M1.5 3.5L6 8.5L10.5 3.5"
+                            stroke="current"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </g>
+                      </svg>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr style="border-top: 1px solid rgb(234, 234, 234)" />
+              <p class="p2 my-3" style="color: rgb(148, 146, 146)">
+                현재 진행중인 쿠폰
+              </p>
+              <div class="location">
+                <div class="pr-4">
+                  <img
+                    class="img-coupon"
+                    src="https://tocotocotea.com/wp-content/uploads/2021/01/Tra-Sua-Socola-1-copy.jpg"
+                  />
+                </div>
+                <div class="rightside">
+                  <h4>프라푸치노 20% 할인</h4>
+                  <p class="p2" style="color: rgb(148, 146, 146)">
+                    환경운전 90점 이상상 달성 시 쿠폰을 드리며, 푸콘 사용 시
+                    프라푸치노 시리즈를 20% 할인해 드립니다.
+                  </p>
+                </div>
+              </div>
+              <div class="location">
+                <div class="pr-4">
+                  <img
+                    class="img-coupon"
+                    src="https://tocotocotea.com/wp-content/uploads/2021/01/Tra-Sua-Socola-1-copy.jpg"
+                  />
+                </div>
+                <div class="rightside">
+                  <h4>프라푸치노 20% 할인</h4>
+                  <p class="p2" style="color: rgb(148, 146, 146)">
+                    환경운전 90점 이상상 달성 시 쿠폰을 드리며, 푸콘 사용 시
+                    프라푸치노 시리즈를 20% 할인해 드립니다.
+                  </p>
+                </div>
+              </div>
+              <div class="location">
+                <div class="pr-4">
+                  <img
+                    class="img-coupon"
+                    src="https://tocotocotea.com/wp-content/uploads/2021/01/Tra-Sua-Socola-1-copy.jpg"
+                  />
+                </div>
+                <div class="rightside">
+                  <h4>프라푸치노 20% 할인</h4>
+                  <p class="p2" style="color: rgb(148, 146, 146)">
+                    환경운전 90점 이상상 달성 시 쿠폰을 드리며, 푸콘 사용 시
+                    프라푸치노 시리즈를 20% 할인해 드립니다.
+                  </p>
+                </div>
+              </div>
+              <div class="location">
+                <div class="pr-4">
+                  <img
+                    class="img-coupon"
+                    src="https://tocotocotea.com/wp-content/uploads/2021/01/Tra-Sua-Socola-1-copy.jpg"
+                  />
+                </div>
+                <div class="rightside">
+                  <h4>프라푸치노 20% 할인</h4>
+                  <p class="p2" style="color: rgb(148, 146, 146)">
+                    환경운전 90점 이상상 달성 시 쿠폰을 드리며, 푸콘 사용 시
+                    프라푸치노 시리즈를 20% 할인해 드립니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="react-modal-sheet-backdrop"
+          style="
+            z-index: 1;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            touch-action: none;
+            border: none;
+            pointer-events: none;
+            opacity: 1;
+          "
+        ></div></div
+    ></a>
+  </body>
+</html>
