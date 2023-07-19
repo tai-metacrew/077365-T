@@ -7060,8 +7060,22 @@ input, textarea 글자컬러, 크기랑 placeholder 맞추기
       strategy="beforeInteractive"
       defer="false"
     ></script>
+
+    <script src="https://apis.openapi.sk.com/tmap/vectorjs?version=1&appKey=ITNGzaPq7Q3Ehn1JZ0ecv2zmYJd6y5Z75tDBSOCV"></script>
+    <script type="text/javascript">
+      function initTmap() {
+        var map = new Tmapv3.Map("map_div", {
+          center: new Tmapv3.LatLng(37.566481622437934, 126.98502302169841), // 지도 초기 좌표
+          width: "100%",
+          height: "100%",
+          zoom: 18,
+        });
+      }
+    </script>
   </head>
-  <body style="overflow: auto">
+  <body onload="initTmap()">
+    <div id="map_div"></div>
+
     <a href="./mypage04.html">
       <div id="root">
         <div class="container h-auto">
@@ -7165,145 +7179,7 @@ input, textarea 글자컬러, 크기랑 placeholder 맞추기
                 <span>도착</span>유유진진
               </p>
             </div>
-            <div
-              id="map_div"
-              class="milage_map"
-              style="width: 100%; height: 100%"
-            >
-              <div
-                id="e944f4bb-41d0-44fc-84c8-abebcd6b5d8b"
-                class="vsm-container vsm-container-bg"
-                style="
-                  position: relative;
-                  overflow: hidden;
-                  user-select: none;
-                  -webkit-user-drag: none;
-                  left: 0px;
-                  top: 0px;
-                  width: 390px;
-                  height: 844px;
-                  z-index: 0;
-                  background-image: url('https://topopen.tmap.co.kr/tmaplibv20/theme/default/img/tlogo.png');
-                "
-              >
-                <div class="vsm-canvas-container">
-                  <canvas
-                    class="vsm-canvas"
-                    tabindex="0"
-                    width="1170"
-                    height="2532"
-                    style="
-                      position: absolute;
-                      left: 0px;
-                      top: 0px;
-                      width: 390px;
-                      height: 844px;
-                    "
-                  ></canvas>
-                  <div
-                    style="
-                      position: absolute;
-                      left: 0px;
-                      top: 0px;
-                      transform: translateZ(0px);
-                      display: block;
-                    "
-                  ></div>
-                  <img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(-187.196px, -14349px);
-                    "
-                  /><img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(364.554px, -14242.4px);
-                    "
-                  /><img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(79.2419px, -14303px);
-                    "
-                  /><img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(96.6169px, -14243.6px);
-                    "
-                  /><img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(181.054px, -14426.5px);
-                    "
-                  /><img
-                    src="http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_p.png"
-                    class="vsm-marker"
-                    style="
-                      opacity: 1;
-                      z-index: 100;
-                      transform: translate(-50%, -100%)
-                        translate(189.304px, -14278.4px);
-                    "
-                  />
-                </div>
-                <div class="vsm-control-container">
-                  <div class="vsm-control-dock vsm-pos-default"></div>
-                  <div class="vsm-control-dock vsm-pos-top-left"></div>
-                  <div class="vsm-control-dock vsm-pos-top-right"></div>
-                  <div class="vsm-control-dock vsm-pos-bottom-left">
-                    <div class="vsm-control">
-                      <div style="margin-top: 30px">
-                        <div class="vsm-control vsm-interactive">
-                          <div class="vsm-contents-wrap">
-                            <div class="vsm-scale-bar-frame">
-                              <label class="vsm-scale-label">200m</label>
-                              <div class="vsm-scale-bar" style="width: 53px">
-                                <canvas
-                                  class="vsm-scale-bar-canvas"
-                                  width="159"
-                                  height="468"
-                                  style="width: 53px; height: 156px"
-                                ></canvas>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="vsm-control-dock vsm-pos-bottom-right">
-                    <div class="vsm-control">
-                      <div class="vsm-contents-wrap">
-                        <div>
-                          <img
-                            src="https://topopen.tmap.co.kr/tmaplib/img/powered-by-T-map_comms.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div id="map_div"></div>
           </div>
         </div>
       </div>
